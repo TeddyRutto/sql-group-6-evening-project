@@ -261,7 +261,7 @@ from cleaned_bookings
 group by 1
 limit 1;
 
----5	Trends - Revenue growth month over month (window function). Busiest vs quietest months
+---5	**Trends - Revenue growth month over month (window function). Busiest vs quietest months**
 
 WITH monthly_revenue AS (
     SELECT 
@@ -289,7 +289,7 @@ SELECT
 FROM cleaned_bookings
 GROUP BY 1;
 
----6   Cancellations - What is our cancellation rate? How much revenue did we lose?
+---**6**   **Cancellations - What is our cancellation rate? How much revenue did we lose?**
 
 select 
     count(*) as total_bookings,
@@ -299,10 +299,6 @@ select
     SUM(CASE WHEN booking_status = 'Cancelled' THEN total_amount ELSE 0 END) AS lost_revenue
 FROM cleaned_bookings;
 
-SELECT 
-    booking_status, 
-    SUM(total_amount) 
-FROM cleaned_bookings 
-GROUP BY booking_status;
+
     
     
